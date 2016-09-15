@@ -3,6 +3,6 @@ module.exports = ({ heimdall, sessionStorage }) => async ({ heimdallLoggedin, re
   await heimdall.post('auth/logout', {
     headers: { 'mxd-session': session.sessionId }
   });
-  sessionStorage.del(account);
+  sessionStorage.del(account.id);
   reply.send('logout sucessful');
 };
