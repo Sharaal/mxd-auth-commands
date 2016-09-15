@@ -4,7 +4,6 @@ module.exports = ({ sessionStorage }) => ({ loggedin, reply }) => async () => {
     const session = sessionStorage.get(account.id);
     return { account, session };
   } else {
-    reply.send('you are not logged in in maxdome');
-    throw new Error('missing maxdome login');
+    throw new Error('you are not logged in in maxdome');
   }
 };
