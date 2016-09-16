@@ -22,15 +22,15 @@ module.exports = _ref => {
       const userId = _args$split2[0];
       const phrase = _args$split2[1];
 
-      const data = yield heimdall.request('auth/login', {
-        body: { userId: userId, phrase: phrase, clientIp: '' },
-        method: 'post'
+      const data = yield heimdall.post('auth/login', {
+        body: { userId: userId, phrase: phrase, clientIp: '' }
       });
       const session = {
+        account: account,
         customer: { customerId: data.customer.customerId },
         sessionId: data.sessionId
       };
-      sessionStorage.set(account, session);
+      sessionStorage.set(account.id, session);
       reply.send('login sucessful');
     });
 

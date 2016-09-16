@@ -15,11 +15,10 @@ module.exports = _ref => {
       const account = _ref4.account;
       const session = _ref4.session;
 
-      yield heimdall.request('auth/logout', {
-        headers: { 'mxd-session': session.sessionId },
-        method: 'post'
+      yield heimdall.post('auth/logout', {
+        headers: { 'mxd-session': session.sessionId }
       });
-      sessionStorage.del(account);
+      sessionStorage.delete(account.id);
       reply.send('logout sucessful');
     });
 

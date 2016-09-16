@@ -9,12 +9,11 @@ module.exports = _ref => {
     let reply = _ref2.reply;
     return _asyncToGenerator(function* () {
       const account = yield loggedin();
-      if (sessionStorage.has(account)) {
-        const session = sessionStorage.get(account);
+      const session = sessionStorage.get(account.id);
+      if (session) {
         return { account: account, session: session };
       } else {
-        reply.send('you are not logged in in maxdome');
-        throw new Error('missing maxdome login');
+        throw new Error('you are not logged in in maxdome');
       }
     });
   };
