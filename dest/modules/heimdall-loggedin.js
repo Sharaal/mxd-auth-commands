@@ -9,7 +9,7 @@ module.exports = _ref => {
     let reply = _ref2.reply;
     return _asyncToGenerator(function* () {
       const account = yield loggedin();
-      const session = sessionStorage.get(account.id);
+      const session = yield sessionStorage.get(account.id);
       if (session) {
         return { account: account, session: session };
       } else {

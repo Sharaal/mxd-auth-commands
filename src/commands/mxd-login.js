@@ -9,6 +9,6 @@ module.exports = ({ heimdall, sessionStorage }) => async ({ args, loggedin, repl
     customer: { customerId: data.customer.customerId },
     sessionId: data.sessionId
   };
-  sessionStorage.set(account.id, session);
+  await sessionStorage.set(account.id, session);
   reply.send('login sucessful');
 };

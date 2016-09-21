@@ -30,7 +30,7 @@ module.exports = _ref => {
         customer: { customerId: data.customer.customerId },
         sessionId: data.sessionId
       };
-      sessionStorage.set(account.id, session);
+      yield sessionStorage.set(account.id, session);
       reply.send('login sucessful');
     });
 

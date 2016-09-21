@@ -18,7 +18,7 @@ module.exports = _ref => {
       yield heimdall.post('auth/logout', {
         headers: { 'mxd-session': session.sessionId }
       });
-      sessionStorage.delete(account.id);
+      yield sessionStorage.delete(account.id);
       reply.send('logout sucessful');
     });
 
