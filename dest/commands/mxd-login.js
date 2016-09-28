@@ -23,10 +23,11 @@ module.exports = _ref => {
       const phrase = _args$split2[1];
 
       const data = yield heimdall.post('auth/login', {
-        body: { userId: userId, phrase: phrase, clientIp: '' }
+        body: { userId: userId, phrase: phrase, autoLogin: true }
       });
       const session = {
         account: account,
+        autoLoginPin: data.autoLoginPin,
         customer: { customerId: data.customer.customerId },
         sessionId: data.sessionId
       };
